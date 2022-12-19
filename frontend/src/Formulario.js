@@ -1,4 +1,4 @@
-function Formulario({botao}) {
+function Formulario({ botao }) {
     return(
         <form>
             <input type="text" className="form-control" placeholder="Nome" />

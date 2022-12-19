@@ -1,4 +1,4 @@
-function Tabela() {
+function Tabela({ lista }) {
     return (
         <table className="table">
             <thead>
@@ -9,12 +9,18 @@ function Tabela() {
                 <th>Selecionar</th>
             </thead>
 
-            <tbody>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tbody >
+                {
+                    lista.map((objeto, indice) => (
+                        <tr key={indice}>
+                            <td>{indice+1}</td>
+                            <td>{objeto.nome}</td>
+                            <td>{objeto.marca}</td>
+                            <td>{objeto.preco}</td>
+                            <td><button className="btn btn-success">Selecionar</button></td>
+                        </tr>
+                    ))
+                }
             </tbody>
         </table>
     )
