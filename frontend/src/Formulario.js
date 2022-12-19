@@ -1,9 +1,9 @@
-function Formulario({ botao }) {
+function Formulario({ botao, eventoInsere }) {
     return(
         <form>
-            <input type="text" className="form-control" placeholder="Nome" />
-            <input type="text" className="form-control" placeholder="Marca" />
-            <input type="text" className="form-control" placeholder="Preço" />
+            <input type="text" onChange={eventoInsere} name="nome" className="form-control" placeholder="Nome" />
+            <input type="text" onChange={eventoInsere} name="marca" className="form-control" placeholder="Marca" />
+            <input type="text" onChange={eventoInsere} name="preco" className="form-control" placeholder="Preço" />
 
             {
                 botao
