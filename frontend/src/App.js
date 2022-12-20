@@ -51,9 +51,14 @@ function App() {
     setBtnCadastrar(false);
   }
 
+  const cancelar = () => {
+    limpaFormulario();
+    setBtnCadastrar(true);
+  }
+
   return (
     <div className="App">
-      <Formulario botao={btnCadastrar} eventoInsere={insereDados} cadastrar={Cadastrar} objeto={objetoProduto} />
+      <Formulario botao={btnCadastrar} eventoInsere={insereDados} cadastrar={Cadastrar} objeto={objetoProduto} cancelar={cancelar} />
       <Tabela lista={produtos} selecionar={selecionar} />
     </div>
   );
