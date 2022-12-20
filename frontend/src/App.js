@@ -23,13 +23,32 @@ function App() {
   })
 
   const insereDados = (e) => {
-    console.log(e.target);
+    setObjetoProduto({...objetoProduto, [e.target.name]:e.target.value});
+  }
+
+  const Cadastrar = () => [
+    fetch('http://localhost:8080/produtos/save', {
+      method:'POST',
+      body:JSON.stringify(objetoProduto),
+      headers:{
+        'Content-type':'application/json',
+        'Accept':'application/json'
+      }
+    })
+    .then(resposta => resposta.json())
+    .then(resposta_conversao =>{
+      alert('Produto Cadastrado com Sucesso!')
+      limpaFormulario();
+    })
+  ]
+
+  const limpaFormulario = () => {
+    setObjetoProduto(produto);
   }
 
   return (
     <div className="App">
-      <p>{JSON.stringify(objetoProduto)}</p>
-      <Formulario botao={btnCadastrar} eventoInsere={insereDados} />
+      <Formulario botao={btnCadastrar} eventoInsere={insereDados} cadastrar={Cadastrar} objeto={objetoProduto} />
       <Tabela lista={produtos} />
     </div>
   );
